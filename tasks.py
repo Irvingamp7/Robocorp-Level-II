@@ -181,8 +181,13 @@ def pdf_cleanup():
     files_dir = os.getcwd() + '/output'
     
     print(files_dir)
-    delete_file = [f for f in os.listdir(files_dir) if f.endswith("1.pdf",)]
-    print(delete_file)
-    for f in delete_file:
-        os.remove(f)
-            
+
+    try:
+
+        delete_file = [f for f in os.listdir(files_dir) if f.endswith("1.pdf",)]
+        print(delete_file)
+        for f in delete_file:
+            os.remove(f)
+    
+    except FileNotFoundError:
+        pass
